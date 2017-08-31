@@ -36,6 +36,7 @@ val commonSettings = Seq(
   name := "featran",
   description := "Feature Transformers",
   scalaVersion := "2.11.11",
+  crossScalaVersions := Seq("2.11.11", "2.12.3"),
   scalacOptions ++= Seq("-target:jvm-1.8", "-deprecation", "-feature", "-unchecked"),
   scalacOptions in (Compile, doc) ++= Seq("-skip-packages", "org.apache"),
   javacOptions ++= Seq("-source", "1.8", "-target", "1.8", "-Xlint:unchecked"),
@@ -144,6 +145,7 @@ lazy val flink: Project = Project(
   commonSettings,
   moduleName := "featran-flink",
   description := "Feature Transformers - Flink",
+  crossScalaVersions := Seq("2.11.11"),
   libraryDependencies ++= Seq(
     "org.apache.flink" %% "flink-scala" % flinkVersion % "provided",
     "org.apache.flink" %% "flink-clients" % flinkVersion % "provided",
@@ -195,6 +197,7 @@ lazy val spark: Project = Project(
   commonSettings,
   moduleName := "featran-spark",
   description := "Feature Transformers - Spark",
+  crossScalaVersions := Seq("2.11.11"),
   libraryDependencies ++= Seq(
     "org.apache.spark" %% "spark-core" % sparkVersion % "provided",
     "org.scalatest" %% "scalatest" % scalatestVersion % "test"
